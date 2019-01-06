@@ -1,3 +1,23 @@
+// Grab buttons
+
+start_button = document.querySelector("#start");
+stop_button = document.querySelector("#stop");
+reset_button = document.querySelector("#reset");
+
+pomodoro_button = document.querySelector("#pomodoro");
+short_break_button = document.querySelector("#short");
+long_break_button = document.querySelector("#long");
+
+start_button.addEventListener("click", () => timer_start());
+stop_button.addEventListener("click", () => timer_stop());
+reset_button.addEventListener("click", () => timer_reset());
+
+pomodoro_button.addEventListener("click", () => set_pomodoro());
+short_break_button.addEventListener("click", () => set_short());
+long_break_button.addEventListener("click", () => set_long());
+
+// Temp generate tomatoes for testing image
+
 const tomato_display = document.querySelector(".tomato-display");
 const timer_display = document.querySelector(".display");
 
@@ -12,7 +32,7 @@ for (let i = 0; i <= 48; i++) {
 
 let isRunning = false;
 let timer_fn;
-const TIMER_TIME = 25;
+let TIMER_TIME = 25;
 let time_remaining = 0;
 
 const timer_start = () => {
@@ -69,10 +89,63 @@ const timer_reset = () => {
     }
 }
 
-start_button = document.querySelector("#start");
-stop_button = document.querySelector("#stop");
-reset_button = document.querySelector("#reset");
+// identical to resetting timer.
+const set_pomodoro = () => {
+    if (isRunning) {
+        clearInterval(timer_fn);
+        TIMER_TIME = 25;
+        time_remaining = 0;
+        isRunning = false;
+        timer_display.textContent = "25:00";
+    } else {
+        TIMER_TIME = 25;
+        time_remaining = 0;
+        timer_display.textContent = "25:00";
+    }
+    pomodoro_button.classList.remove("top-button");
+    pomodoro_button.classList.add("top-button-selected");
+    short_break_button.classList.remove("top-button-selected");
+    short_break_button.classList.add("top-button");
+    long_break_button.classList.remove("top-button-selected");
+    long_break_button.classList.add("top-button");
+}
 
-start_button.addEventListener("click", () => timer_start());
-stop_button.addEventListener("click", () => timer_stop());
-reset_button.addEventListener("click", () => timer_reset());
+const set_short = () => {
+    if (isRunning) {
+        clearInterval(timer_fn);
+        TIMER_TIME = 5;
+        time_remaining = 0;
+        isRunning = false;
+        timer_display.textContent = "05:00";
+    } else {
+        TIMER_TIME = 5;
+        time_remaining = 0;
+        timer_display.textContent = "05:00";
+    }
+    pomodoro_button.classList.remove("top-button-selected");
+    pomodoro_button.classList.add("top-button");
+    short_break_button.classList.remove("top-button");
+    short_break_button.classList.add("top-button-selected");
+    long_break_button.classList.remove("top-button-selected");
+    long_break_button.classList.add("top-button");
+}
+
+const set_long = () => {
+    if (isRunning) {
+        clearInterval(timer_fn);
+        TIMER_TIME = 10;
+        time_remaining = 0;
+        isRunning = false;
+        timer_display.textContent = "10:00";
+    } else {
+        TIMER_TIME = 10;
+        time_remaining = 0;
+        timer_display.textContent = "10:00";
+    }
+    pomodoro_button.classList.remove("top-button-selected");
+    pomodoro_button.classList.add("top-button");
+    short_break_button.classList.remove("top-button-selected");
+    short_break_button.classList.add("top-button");
+    long_break_button.classList.remove("top-button");
+    long_break_button.classList.add("top-button-selected");
+}
