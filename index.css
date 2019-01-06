@@ -1,0 +1,158 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --white-text-color: rgb(240, 232, 232);
+  }
+
+a {
+    text-decoration: none;
+    color: var(--white-text-color);
+    padding: 10px 20px 10px 20px;
+    background-color: #4E4E4E;
+}
+
+a:hover {
+    background-color:rgb(58, 58, 58);
+}
+
+body {
+    margin: 0 auto;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.tomato-pic {
+    width: 50px;
+    height: 50px;
+    margin: 0 25px 0 0;
+}
+
+.row {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.header-row {
+    background-color: rgb(241, 236, 236);
+    border: solid 1px #e6e6e6;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px 0 20px;
+}
+
+.left-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left-header h2 {
+    margin: 0 0 0 25px;
+}
+
+.header-text {
+    display: flex;
+    align-items: baseline;
+}
+
+nav {
+    display: flex;
+    align-items: baseline;
+}
+
+.main {
+    display: flex;
+    padding: 25px 0 0 0;
+    justify-content: space-around;
+}
+
+.timer {
+    width: 60%;
+    text-align: center;
+}
+
+.tomato-count {
+    width: 30%;
+    text-align: center;
+}
+
+.display {
+    font-size: 120px;
+}
+
+.top-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+}
+
+.top-button {
+    padding: 10px 50px 10px 50px;
+    background-color: rgb(16, 163, 102);
+    border: 1px solid rgb(10, 117, 72);
+    color: var(--white-text-color);
+    font-size: 16px;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.top-button:hover {
+    background-color: rgb(15, 146, 91);
+    
+}
+
+.top-button-selected {
+    background-color: rgb(15, 146, 91);
+}
+
+.bottom-buttons {
+    display: flex;
+    padding: 25px 20% 0 20%;
+    justify-content: space-evenly;
+}
+
+.timer-button {
+    text-align: center;
+    padding: 15px 30px 15px 30px;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.start-button {
+    background-color: rgb(25, 163, 25);
+    border: 1px solid #396516;
+    color: var(--white-text-color);
+}
+
+.stop-button {
+    background-color: rgb(187, 19, 19);
+    border: 1px solid #7f0a0c;
+    color: var(--white-text-color);
+}
+
+.reset-button {
+    background-color: var(--white-text-color);
+    border: 1px solid #c3c3c3;
+}
+
+.tomato-count {
+    border: 3px solid #e6e6e6;
+}
+
+.tomato-display {
+    padding: 10px;
+}
+.teeny-tomato {
+    height: 25px;
+    width: 25px;
+}
