@@ -88,12 +88,14 @@ nav {
 .top-buttons {
     display: flex;
     justify-content: center;
+    margin: 0px 0 40px 0;
 }
 
 button {
     cursor: pointer;
     font-weight: bold;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    transition: background-color 0.15s ease-in-out;
 }
 
 .top-button {
@@ -102,7 +104,6 @@ button {
     border: 1px solid rgb(10, 117, 72);
     color: var(--white-text-color);
     font-size: 16px;
-    transition: background-color 0.15s ease-in-out;
 }
 
 .top-button:hover {
@@ -116,7 +117,7 @@ button {
 
 .bottom-buttons {
     display: flex;
-    padding: 25px 20% 0 20%;
+    margin: 40px 0 0 0;
     justify-content: space-evenly;
 }
 
@@ -134,10 +135,18 @@ button {
     color: var(--white-text-color);
 }
 
+.start-button:hover {
+    background-color: #457a1a;
+}
+
 .stop-button {
     background-color: rgb(187, 19, 19);
     border: 1px solid #7f0a0c;
     color: var(--white-text-color);
+}
+
+.stop-button:hover {
+    background-color: #970b0e;
 }
 
 .reset-button {
@@ -145,6 +154,9 @@ button {
     border: 1px solid #c3c3c3;
 }
 
+.reset-button:hover {
+    background-color: #d0d0d0;
+}
 .tomato-count {
     border: 3px solid #e6e6e6;
 }
@@ -155,4 +167,8 @@ button {
 .teeny-tomato {
     height: 25px;
     width: 25px;
+}
+
+.display {
+    font-weight: bold;
 }
