@@ -1,4 +1,4 @@
-// Grab buttons
+// Grab DOM elements
 
 start_button = document.querySelector("#start");
 stop_button = document.querySelector("#stop");
@@ -16,24 +16,19 @@ pomodoro_button.addEventListener("click", () => set_pomodoro());
 short_break_button.addEventListener("click", () => set_short());
 long_break_button.addEventListener("click", () => set_long());
 
-// Temp generate tomatoes for testing image
-
 const tomato_display = document.querySelector(".tomato-display");
 const timer_display = document.querySelector(".display");
 
-for (let i = 0; i <= 48; i++) {
-    const tomato = document.createElement('img');
-    tomato.classList.add('teeny-tomato');
-    tomato.src = './tomato_counter.png';
-    tomato_display.appendChild(tomato);
-}
+const minutes_total = document.querySelector(".minutes-total");
 
-// Timer
+// Timer Logic
 
+const POMODORO_LENGTH = 25;
 let isRunning = false;
 let timer_fn;
-let TIMER_TIME = 25;
+let timer_time = POMODORO_LENGTH
 let time_remaining = 0;
+let is_pomodoro = true;
 
 const timer_start = () => {
     if (isRunning) {
@@ -45,7 +40,7 @@ const timer_start = () => {
     // Grabbing current time and calculating 25 min into the future if there's no stored remaining time
     if (time_remaining === 0) {
         const date = new Date();
-        date_future = new Date(date.getTime() + TIMER_TIME*60000);
+        date_future = new Date(date.getTime() + timer_time*60000);
     } else {
         const date= new Date();
         date_future = new Date(date.getTime() + time_remaining*60000);
@@ -64,6 +59,16 @@ const timer_start = () => {
             clearInterval(timer_fn);
             timer_display.textContent = "00:00";
             isRunning = false;
+            num_of_teeny_tomatoes = document.querySelectorAll(".teeny-tomato").length;
+            if (is_pomodoro && num_of_teeny_tomatoes <= 58) {
+                const tomato = document.createElement('img');
+                tomato.classList.add('teeny-tomato');
+                tomato.src = './tomato_counter.png';
+                tomato_display.appendChild(tomato);
+            }
+            num_of_teeny_tomatoes = document.querySelectorAll(".teeny-tomato").length; // twice to update the number for following function
+            minutes_productive(num_of_teeny_tomatoes);
+            time_remaining = 0;
           }
     }, 100);
 }
@@ -89,16 +94,16 @@ const timer_reset = () => {
     }
 }
 
-// identical to resetting timer.
+// essentially identical to resetting timer.
 const set_pomodoro = () => {
     if (isRunning) {
         clearInterval(timer_fn);
-        TIMER_TIME = 25;
+        timer_time = POMODORO_LENGTH;
         time_remaining = 0;
         isRunning = false;
         timer_display.textContent = "25:00";
     } else {
-        TIMER_TIME = 25;
+        timer_time = POMODORO_LENGTH;
         time_remaining = 0;
         timer_display.textContent = "25:00";
     }
@@ -108,17 +113,18 @@ const set_pomodoro = () => {
     short_break_button.classList.add("top-button");
     long_break_button.classList.remove("top-button-selected");
     long_break_button.classList.add("top-button");
+    is_pomodoro = true;
 }
 
 const set_short = () => {
     if (isRunning) {
         clearInterval(timer_fn);
-        TIMER_TIME = 5;
+        timer_time = 5;
         time_remaining = 0;
         isRunning = false;
         timer_display.textContent = "05:00";
     } else {
-        TIMER_TIME = 5;
+        timer_time = 5;
         time_remaining = 0;
         timer_display.textContent = "05:00";
     }
@@ -128,17 +134,18 @@ const set_short = () => {
     short_break_button.classList.add("top-button-selected");
     long_break_button.classList.remove("top-button-selected");
     long_break_button.classList.add("top-button");
+    is_pomodoro = false;
 }
 
 const set_long = () => {
     if (isRunning) {
         clearInterval(timer_fn);
-        TIMER_TIME = 10;
+        timer_time = 10;
         time_remaining = 0;
         isRunning = false;
         timer_display.textContent = "10:00";
     } else {
-        TIMER_TIME = 10;
+        timer_time = 10;
         time_remaining = 0;
         timer_display.textContent = "10:00";
     }
@@ -148,4 +155,11 @@ const set_long = () => {
     short_break_button.classList.add("top-button");
     long_break_button.classList.remove("top-button");
     long_break_button.classList.add("top-button-selected");
+    is_pomodoro = false;
+}
+
+const minutes_productive = (integer) => {
+    result = 25 * integer;
+    result = result + " minutes";
+    document.querySelector(".minutes-total").textContent = result;
 }

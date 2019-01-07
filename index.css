@@ -166,6 +166,7 @@ button {
 
 .tomato-display {
     padding: 10px;
+    height: 150px;
 }
 .teeny-tomato {
     height: 25px;
@@ -174,4 +175,9 @@ button {
 
 .display {
     font-weight: bold;
+}
+
+.total-productive {
+    display: flex;
+    flex-direction: column;
 }
