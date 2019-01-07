@@ -21,6 +21,26 @@ const timer_display = document.querySelector(".display");
 
 const minutes_total = document.querySelector(".minutes-total");
 
+// Local Storage
+
+
+
+const startup = () => {
+    tomato_storage = localStorage.getItem('tomatoes');
+    if (tomato_storage) {
+        for (let i = 0; i < parseInt(tomato_storage); i++) {
+            const tomato = document.createElement('img');
+            tomato.classList.add('teeny-tomato');
+            tomato.src = './tomato_counter.png';
+            tomato_display.appendChild(tomato);
+        }
+    } else {
+        localStorage.setItem('tomatoes', "0");
+    }
+}
+
+startup();
+
 // Timer Logic
 
 const POMODORO_LENGTH = 25;
@@ -68,6 +88,8 @@ const timer_start = () => {
             }
             num_of_teeny_tomatoes = document.querySelectorAll(".teeny-tomato").length; // twice to update the number for following function
             minutes_productive(num_of_teeny_tomatoes);
+            tomato_storage = localStorage.getItem('tomatoes');
+            localStorage.setItem('tomatoes', (parseInt(tomato_storage) + 1).toString())
             time_remaining = 0;
           }
     }, 100);
@@ -163,3 +185,4 @@ const minutes_productive = (integer) => {
     result = result + " minutes";
     document.querySelector(".minutes-total").textContent = result;
 }
+
