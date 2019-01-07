@@ -83,6 +83,7 @@ nav {
 
 .display {
     font-size: 120px;
+    font-weight: bold;
 }
 
 .top-buttons {
@@ -99,7 +100,8 @@ button {
 }
 
 .top-button {
-    padding: 10px 50px 10px 50px;
+    padding: 10px 20px 10px 20px;
+    width: 200px;
     background-color: rgb(3, 165, 97);
     border: 1px solid rgb(8, 88, 55);
     color: var(--white-text-color);
@@ -111,7 +113,8 @@ button {
 }
 
 .top-button-selected {
-    padding: 10px 50px 10px 50px;
+    padding: 10px 20px 10px 20px;
+    width: 200px;
     background-color: rgb(14, 126, 79);
     border: 1px solid rgb(8, 88, 55);
     color: var(--white-text-color);
@@ -173,11 +176,90 @@ button {
     width: 25px;
 }
 
-.display {
-    font-weight: bold;
-}
+
 
 .total-productive {
     display: flex;
     flex-direction: column;
+}
+
+@media (max-width: 800px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        padding: 25px 0 0 0;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .timer {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .tomato-count {
+        width: 80%;
+        margin: 40px 0 0 0;
+        text-align: center;
+    }
+
+    .top-buttons{
+        display: flex;
+        justify-content: center;
+        margin: 0px 15px 40px 15px;
+    }
+    .header-text h2 {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .top-buttons{
+        display: flex;
+        justify-content: center;
+        margin: 0px 15px 40px 15px;
+    }
+
+    .top-button {
+        padding: 10px 0px 10px 0px;
+        width: 200px;
+        background-color: rgb(3, 165, 97);
+        border: 1px solid rgb(8, 88, 55);
+        color: var(--white-text-color);
+        font-size: 12px;
+    }
+    
+    .top-button:hover {
+        background-color: rgb(14, 126, 79);
+    }
+    
+    .top-button-selected {
+        padding: 10px 0px 10px 0px;
+        width: 200px;
+        background-color: rgb(14, 126, 79);
+        border: 1px solid rgb(8, 88, 55);
+        color: var(--white-text-color);
+        font-size: 12px;
+    }
+
+    .display {
+        font-size: 84px;
+        font-weight: bold;
+    }
+
+    .bottom-buttons {
+        display: flex;
+        margin: 40px 15px 0 15px;
+        justify-content: space-evenly;
+    }
+
+    .timer-button {
+        text-align: center;
+        padding: 15px 0px 15px 0px;
+        width: 80px;
+        border-radius: 5px;
+        font-size: 20px;
+        transition: background-color 0.15s ease-in-out;
+    }
+
 }
