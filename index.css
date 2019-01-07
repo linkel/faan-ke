@@ -176,11 +176,13 @@ button {
     width: 25px;
 }
 
-
-
 .total-productive {
     display: flex;
     flex-direction: column;
+}
+
+.minutes-total {
+    height: 30px;
 }
 
 @media (max-width: 800px) {
@@ -199,7 +201,7 @@ button {
     
     .tomato-count {
         width: 80%;
-        margin: 40px 0 0 0;
+        margin: 40px 0 40px 0;
         text-align: center;
     }
 
