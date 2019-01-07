@@ -3,6 +3,7 @@
 start_button = document.querySelector("#start");
 stop_button = document.querySelector("#stop");
 reset_button = document.querySelector("#reset");
+clear_button = document.querySelector("#clear");
 
 pomodoro_button = document.querySelector("#pomodoro");
 short_break_button = document.querySelector("#short");
@@ -11,6 +12,7 @@ long_break_button = document.querySelector("#long");
 start_button.addEventListener("click", () => timer_start());
 stop_button.addEventListener("click", () => timer_stop());
 reset_button.addEventListener("click", () => timer_reset());
+clear_button.addEventListener("click", () => clear_tomatoes());
 
 pomodoro_button.addEventListener("click", () => set_pomodoro());
 short_break_button.addEventListener("click", () => set_short());
@@ -21,9 +23,13 @@ const timer_display = document.querySelector(".display");
 
 const minutes_total = document.querySelector(".minutes-total");
 
-// Local Storage
+// Local Storage and Display Initialization
 
-
+const minutes_productive = (integer) => {
+    result = 25 * integer;
+    result = result + " minutes";
+    document.querySelector(".minutes-total").textContent = result;
+}
 
 const startup = () => {
     tomato_storage = localStorage.getItem('tomatoes');
@@ -37,6 +43,8 @@ const startup = () => {
     } else {
         localStorage.setItem('tomatoes', "0");
     }
+    num_of_teeny_tomatoes = document.querySelectorAll(".teeny-tomato").length;
+    minutes_productive(num_of_teeny_tomatoes);
 }
 
 startup();
@@ -116,7 +124,7 @@ const timer_reset = () => {
     }
 }
 
-// essentially identical to resetting timer.
+// essentially identical to resetting timer
 const set_pomodoro = () => {
     if (isRunning) {
         clearInterval(timer_fn);
@@ -180,9 +188,12 @@ const set_long = () => {
     is_pomodoro = false;
 }
 
-const minutes_productive = (integer) => {
-    result = 25 * integer;
-    result = result + " minutes";
-    document.querySelector(".minutes-total").textContent = result;
-}
+// Clear Pomodoros
 
+const clear_tomatoes = () => {
+    while (tomato_display.firstChild) {
+        tomato_display.removeChild(tomato_display.firstChild);
+    }
+    localStorage.setItem('tomatoes', "0");
+    minutes_productive(0);
+}

@@ -182,7 +182,19 @@ button {
 }
 
 .minutes-total {
-    height: 30px;
+    height: 50px;
+}
+
+.clear-button {
+    background-color: var(--white-text-color);
+    border: 1px solid #c3c3c3;
+    width: 150px;
+    padding: 5px 0 5px 0;
+    border-radius: 25px;
+}
+
+.clear-button:hover {
+    background-color: #d0d0d0;
 }
 
 @media (max-width: 800px) {
