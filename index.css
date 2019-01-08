@@ -197,6 +197,32 @@ button {
     background-color: #d0d0d0;
 }
 
+.mask {
+    display: none;
+    position: fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    background-color: rgb(53, 53, 53);
+    text-align: center;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.about-content {
+    position: absolute;
+    display: none;
+    left: 15%;
+    background-color: white;
+    padding: 50px 50px;
+    height: 400px;
+    max-width: 70%;
+    z-index:3;
+    top: 50px;
+    opacity: 1;
+}
+
 @media (max-width: 800px) {
     .main {
         display: flex;
@@ -224,6 +250,18 @@ button {
     }
     .header-text h2 {
         display: none;
+    }
+    .about-content {
+        position: absolute;
+        display: none;
+        left: 5%;
+        background-color: white;
+        padding: 20px 20px;
+        height: 400px;
+        max-width: 90%;
+        z-index:3;
+        top: 50px;
+        opacity: 1;
     }
 }
 

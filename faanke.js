@@ -197,3 +197,28 @@ const clear_tomatoes = () => {
     localStorage.setItem('tomatoes', "0");
     minutes_productive(0);
 }
+
+// Menu Functionality
+
+const openAbout = () => {
+    mask.style.display = "block";
+    about.style.display = "block";
+}
+  
+const closeMenu = () => {
+  if (mask.style.display == "block") {
+    mask.style.display = "none";
+  }
+  if (about.style.display == "block") {
+    about.style.display = "none";
+  }
+}
+  
+  const mask = document.querySelector(".mask");
+  const about_button = document.querySelector("#about");
+  const about = document.querySelector(".about-content")
+  const closeArea = document.querySelector(".mask");
+
+  // click handlers that call menu functions
+  about_button.addEventListener("click", openAbout);
+  closeArea.addEventListener("click", closeMenu);
