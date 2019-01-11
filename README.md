@@ -12,9 +12,8 @@ I'm writing all of this up from scratch with HTML5/CSS and JS to cement my under
 - [x] timer functionality
 - [x] responsive design
 - [x] tomato pics and favicons
-- [ ] clear pomodoro pictures
-- [ ] about page
-- [ ] keyboard shortcuts
-- [ ] log pomodoro time start and end in localStorage
-- [ ] clear pomodoro logs
+- [x] clear pomodoro pictures
+- [x] about page
+- [x] log pomodoro time start and end in localStorage
+- [x] clear pomodoro logs
 - [ ] calendar of pomodoro tally
