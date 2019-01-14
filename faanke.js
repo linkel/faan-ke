@@ -136,6 +136,7 @@ const timer_start = () => {
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
         timer_display.textContent = ('0' + minutes).slice(-2) + ':' + ('0' + seconds).slice(-2);
+        document.title = ('0' + minutes).slice(-2) + ':' + ('0' + seconds).slice(-2);
         if (distance < 0) {
             clearInterval(timer_fn);
             timer_display.textContent = "00:00";
@@ -157,6 +158,7 @@ const timer_start = () => {
             localStorage.setItem('log', JSON.stringify(global_log));
             createTable();
             time_remaining = 0;
+            document.title = "!!!! Done! !!!!"
           }
     }, 100);
 }
@@ -176,9 +178,11 @@ const timer_reset = () => {
         time_remaining = 0;
         isRunning = false;
         timer_display.textContent = "25:00";
+        document.title = "Faan Ke: A Custom Pomodoro Timer"
     } else {
         time_remaining = 0;
         timer_display.textContent = "25:00";
+        document.title = "Faan Ke: A Custom Pomodoro Timer"
     }
 }
 
@@ -190,10 +194,12 @@ const set_pomodoro = () => {
         time_remaining = 0;
         isRunning = false;
         timer_display.textContent = "25:00";
+        document.title = "Faan Ke: A Custom Pomodoro Timer"
     } else {
         timer_time = POMODORO_LENGTH;
         time_remaining = 0;
         timer_display.textContent = "25:00";
+        document.title = "Faan Ke: A Custom Pomodoro Timer"
     }
     pomodoro_button.classList.remove("top-button");
     pomodoro_button.classList.add("top-button-selected");
@@ -211,10 +217,12 @@ const set_short = () => {
         time_remaining = 0;
         isRunning = false;
         timer_display.textContent = "05:00";
+        document.title = "Faan Ke: A Custom Pomodoro Timer"
     } else {
         timer_time = 5;
         time_remaining = 0;
         timer_display.textContent = "05:00";
+        document.title = "Faan Ke: A Custom Pomodoro Timer"
     }
     pomodoro_button.classList.remove("top-button-selected");
     pomodoro_button.classList.add("top-button");
@@ -232,10 +240,12 @@ const set_long = () => {
         time_remaining = 0;
         isRunning = false;
         timer_display.textContent = "10:00";
+        document.title = "Faan Ke: A Custom Pomodoro Timer"
     } else {
         timer_time = 10;
         time_remaining = 0;
         timer_display.textContent = "10:00";
+        document.title = "Faan Ke: A Custom Pomodoro Timer"
     }
     pomodoro_button.classList.remove("top-button-selected");
     pomodoro_button.classList.add("top-button");
